@@ -21,7 +21,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="">Catolog</a>
+                        <button onclick="getAllBooks()">Get All Books</button>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="">Cart</a>
@@ -52,7 +52,6 @@
 <h1>Books CRUD Application</h1>
 
 <div id="app">
-    <button onclick="getAllBooks()">Get All Books</button>
     <section class="addprod">
     <h2>Add Book</h2>
     <form onsubmit="addBook(event)">
