@@ -1,0 +1,82 @@
+body {
+    background-color: #0f426b;
+    font-family: DejaVu Sans Mono, monospace;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+h2 {
+    color: #fff;
+    text-align: center;
+    font-size: 20px;
+}
+
+form {
+    max-width: 800px;
+    margin: 20px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+label {
+    width: 48%;
+    display: block;
+    margin-bottom: 4px;
+    font-size: 12px;
+}
+
+input {
+    width: 100%;
+    padding: 6px;
+    margin-bottom: 8px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+input[type="submit"] {
+    background-color: #0d345a;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+input[type="submit"]:hover {
+    background-color: #215269;
+}
+
+.navbar {
+    background-color: #081c42 !important;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: white !important;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    text-decoration: underline;
+}
+
+section {
+    font-family: DejaVu Sans Mono, monospace;
+}
+
+section.addprod {
+    margin-top: 40px;
+    margin-bottom: 80px;
+}
+
+html, body {
+    height: 100%;
+}
+
+section, form {
+    box-sizing: border-box;
+}
+li {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
