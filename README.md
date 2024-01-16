@@ -3,12 +3,13 @@
 
 ### Brief Project Description:
 
-The Music Store project is based on providing opportunities and services to users of the platform to explore and purchase musical instruments of various types (for example: guitars, drum kits, keys, violins, and so on). The application includes advanced functionality via POST and GET requests, which allows users to interact with the site seamlessly. The target users are music lovers, buyers and sellers in the field of digital music.
+The Bookstore project is dedicated to offering a platform for users to explore and acquire a wide range of books across various genres. The application is designed with advanced functionality, incorporating features such as POST and GET requests, to facilitate seamless interaction with the site. This platform caters to book enthusiasts, avid readers, and both buyers and sellers in the realm of literature.
 
 ### Brief Project Description:
-The Music Store project is based on providing opportunities and services to users of the platform to explore and purchase musical instruments of various types (for example: guitars, drum kits, keys, violins, and so on). The application includes advanced functionality via POST and GET requests, which allows users to interact with the site seamlessly. The target users are music lovers, buyers and sellers in the field of digital music.
+The Bookstore project centers around providing opportunities and services for users to discover and purchase books of diverse genres and subjects. Whether it's fiction, non-fiction, science fiction, mystery, or any other category, the bookstore platform aims to be a comprehensive source for literary exploration. The application integrates advanced functionality through POST and GET requests, ensuring a user-friendly experience and efficient interaction with the site. The primary audience includes book lovers, avid readers, and individuals engaged in buying and selling books.
 
 ### Screenshot:
+![image_2024-01-16_18-17-12](https://github.com/JustArys/Advanced-Programming/assets/122851835/aadbd608-1679-4bc2-b042-85bbcf036d3a)
 
 
 ### Launch Instructions:
@@ -21,7 +22,7 @@ The Music Store project is based on providing opportunities and services to user
 
 ### Tools Used:
 Golang
-PostgreSQL
+MongoDB
 HTML
 Postman for server checks
 
