@@ -16,9 +16,9 @@ The Bookstore project centers around providing opportunities and services for us
 #### 1.Server Setup:
 1.1.Ensure you have Golang installed.
 #### 2.Webpage:
-2.1.Create a small HTML page and connect it to the Golang server.
-2.2.Ensure all buttons and boxes are functional and responsive to the server.
-2.3.In case of a request error, display the server response on the webpage.
+##### 2.1.Create a small HTML page and connect it to the Golang server.
+##### 2.2.Ensure all buttons and boxes are functional and responsive to the server.
+##### 2.3.In case of a request error, display the server response on the webpage.
 
 ### Tools Used:
 Golang
