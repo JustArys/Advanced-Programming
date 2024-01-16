@@ -27,10 +27,6 @@ function displayBooks(data) {
     }
 }
 
-// Other functions for addBook, updateBook, and deleteBook can remain the same.
-
-
-// Other functions for updateBook and deleteBook can remain the same.
 
 function addBook(event) {
     event.preventDefault();
