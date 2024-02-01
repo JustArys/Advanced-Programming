@@ -1,14 +1,16 @@
 package main
 
 import (
-	"os"
-
-	"github.com/bmdavis419/fiber-mongo-example/common"
-	"github.com/bmdavis419/fiber-mongo-example/router"
+	"Music_Instrument_Shop/models"
+	"fmt"
+	"github.com/bxcodec/faker"
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
-	"github.com/gofiber/fiber/v2/middleware/logger"
-	"github.com/gofiber/fiber/v2/middleware/recover"
+	"gorm.io/driver/postgres"
+	"gorm.io/gorm"
+	"math"
+	"os"
+	"strconv"
 )
 
 func main() {
@@ -20,26 +22,62 @@ func main() {
 }
 
 func run() error {
-	err := common.LoadEnv()
+	dsn := "host=localhost user=postgres password=Just_arys7 dbname=postgres port=5432 sslmode=disable TimeZone=Asia/Shanghai"
+	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
 	if err != nil {
-		return err
+		panic("Could not connect to the database")
 	}
-
-	err = common.InitDB()
-	if err != nil {
-		return err
+	errr := db.AutoMigrate(&models.Book{})
+	if errr != nil {
+		return errr
 	}
-
-	defer common.CloseDB()
 
 	app := fiber.New()
 
-	app.Use(logger.New())
-	app.Use(recover.New())
 	app.Use(cors.New())
 
-	router.AddBookGroup(app)
+	app.Post("/api/products/populate", func(ctx *fiber.Ctx) error {
+		for i := 0; i < 50; i++ {
+			db.Create(&models.Book{
+				Title:  faker.WORD,
+				Author: faker.FirstName + " " + faker.LastName,
+				Year:   faker.BaseDate,
+			})
+		}
+		return ctx.JSON(fiber.Map{
+			"message": "success",
+		})
+	})
 
+	app.Get("api/books/frontend", func(ctx *fiber.Ctx) error {
+		var books []models.Book
+
+		sql := "SELECT * FROM books"
+
+		if s := ctx.Query("s"); s != "" {
+			sql = fmt.Sprintf("%s WHERE title LIKE '%%%s%%'", sql, s)
+		}
+
+		if sort := ctx.Query("sort"); sort != "" {
+			sql += " ORDER BY " + sort
+		}
+
+		page, _ := strconv.Atoi(ctx.Query("page", "1"))
+		perPage := 9
+		var total int64
+
+		db.Raw(sql).Count(&total)
+		sql = fmt.Sprintf("%s LIMIT %d OFFSET %d", sql, perPage, (page-1)*perPage)
+
+		db.Raw(sql).Scan(&books)
+
+		return ctx.JSON(fiber.Map{
+			"data":      books,
+			"total":     total,
+			"page":      page,
+			"last_page": math.Ceil(float64(total / int64(page))),
+		})
+	})
 	var port string
 	if port = os.Getenv("PORT"); port == "" {
 		port = "8080"
