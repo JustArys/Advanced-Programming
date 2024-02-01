@@ -11,7 +11,43 @@ The Bookstore project centers around providing opportunities and services for us
 ### Screenshot:
 ![image_2024-01-16_18-17-12](https://github.com/JustArys/Advanced-Programming/assets/122851835/aadbd608-1679-4bc2-b042-85bbcf036d3a)
 
+### Instructions
+ensure you have the latest version of Go installed
+ensure that you have MongoDB installed and running
+clone this repo
+create a .env file in the root of the project and add the following:
+MONGO_URI=mongodb://localhost:27017
+PORT=8080
+run go run main.go in the root of the project
+endpoints
+GET /books
+Returns all books
 
+GET /books/:id
+Returns a single book
+
+POST /books
+Creates a new book
+
+input:
+
+{
+    "title": "test book",
+    "author": "me",
+    "year": "2022"
+}
+PUT /books/:id
+Updates a book
+
+input:
+
+{
+    "title": "test book",
+    "author": "me",
+    "year": "2022"
+}
+DELETE /books/:id
+Deletes a book
 ### Launch Instructions:
 #### 1.Server Setup:
 1.1.Ensure you have Golang installed.
